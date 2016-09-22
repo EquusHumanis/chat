@@ -11,7 +11,7 @@ function __autoload($className)
 $error = '';
 $page = "home";
 $access = ["home", "register", "login"];
-$accessIn = ["logout"];
+$accessIn = ["logout", "chat"];
 
 if(isset($_GET['page']))
 {
