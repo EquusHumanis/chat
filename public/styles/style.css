@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: 'Pavanam', sans-serif;
-
 }
+
 
 /*HEADER*/
 .header{
@@ -48,11 +48,27 @@ body {
 /*FOOTER*/
 
 /*CHAT*/
-@charset "UTF-8";
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.floatLeft {
+  float: left;
+  width: 20%;
+}
+
+.floatRight {
+  float: right;
+  width: 80%;
+}
+
+/*@charset "UTF-8";
 html, body, .container {
   height: 100%;
   overflow: hidden;
-}
+}*/
 
 .container {
   width: 100%;
@@ -64,6 +80,7 @@ html, body, .container {
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
 }
+
 
 .contacts {
   -webkit-flex-basis: 100%;
@@ -151,10 +168,10 @@ html, body, .container {
 }
 
 .messages {
-  -webkit-box-flex: 1;
+/*  -webkit-box-flex: 1;
   -webkit-flex: 1 1px;
       -ms-flex: 1 1px;
-          flex: 1 1px;
+          flex: 1 1px;*/
   background: tomato;
   overflow-y: scroll;
 }
