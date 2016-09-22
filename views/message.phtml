@@ -1,5 +1,5 @@
 <div>
-	<p><?= htmlentities( $messages[$i]->getDate() ) ?></p>
-	<p><?= htmlentities( $messages[$i]->getContent() ) ?></p>
-	<!-- <p> htmlentities($messages[$i]->getAuthor()->getLogin()) </p> -->
+	<p><?= htmlentities($messages[$i]->getDate()) ?></p>
+	<p><?= htmlentities($messages[$i]->getContent()) ?></p>
+	<p><?= htmlentities($messages[$i]->getAuthor()) ?></p>
 </div>

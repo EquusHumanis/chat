@@ -1,11 +1,12 @@
+<form method="POST">
+  <div><?= $error ?></div>
+  <input type="hidden" name="action" value="create" >
+  <input type="hidden" name="user" value="<?= $_SESSION["id"] ?>">
+  <textarea name="message" placeholder="..."></textarea>
+  <input type="submit" value="+" >
+</form>
 <?php require("controllers/message.php") ?>
 
-<form method="POST">
-  <input type="hidden" name="action" value="create" >
-  <input type="hidden" name="user" value="SESSION_ID">
-  <textarea name="message" placeholder="..."></textarea>
-  <input type="submit" value="✚" >
-</form>
 
 
 
