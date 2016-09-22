@@ -29,7 +29,7 @@ if(isset($_GET['page']))
 
 $traitementList = [
 	"register" => "users", "login" => "users", "logout" => "users",
-	"home" => "chat"
+	"home" => "message"
 ];
 
 if(isset($_GET['page'], $traitementList[$_GET['page']]))
