@@ -34,8 +34,7 @@ $traitementList = [
 
 if(isset($_GET['page'], $traitementList[$_GET['page']]))
 	require("controllers/traitement_".$traitementList[$_GET['page']].".php");
-else
-	require('controllers/skel.php');
+require('controllers/skel.php');
 //Ajax
 /*
 if (isset($_GET['ajax']))
