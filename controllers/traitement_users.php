@@ -12,7 +12,7 @@ if (isset($_POST['action']))
 			if ($user->verifPassword($_POST['password']))
 			{
 				$_SESSION['id'] = $user->getId();
-				$_SESSION['user'] = $user;
+				$_SESSION['user'] = $user->getLogin();
 			}
 			else
 				$_SESSION['error'] = 'Wrong password';
@@ -23,6 +23,7 @@ if (isset($_POST['action']))
 	else if ($action == 'register' && isset($_POST['login'], $_POST['password1'], $_POST['password2']))
 	{
 		$manager = new UserManager($db);
+		var_dump($manager);
 		try
 		{
 			$user = $manager->create($_POST['login'], $_POST['password1'], $_POST['password2']);
