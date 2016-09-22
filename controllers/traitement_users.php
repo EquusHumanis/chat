@@ -1,5 +1,8 @@
-<?php 
+<?php
+var_dump("ok");
 
+if(isset($_POST["action"]))
+{
 	if(isset($_GET['page']) && $_GET['page'] == 'logout') {
 		session_destroy();
 		header('Location: index.php');
@@ -45,4 +48,6 @@
 			}
 		}
 	}	
+}
+var_dump("ok");
 ?>
