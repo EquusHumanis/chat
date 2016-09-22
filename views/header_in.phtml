@@ -1,0 +1,19 @@
+<header class="header">
+	<!-- A MODIFIER -->
+	<nav class="nav">
+		<ul>
+			<li><a class="link-header" href="index.php?page=panier"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Mon panier</a></li>
+			<li><a class="link-header" href="index.php?page=products"><i class="fa fa-hand-peace-o" aria-hidden="true"></i> Nos produits</a></li>
+			<li><a class="link-header" href="index.php?page=my_account"><i class="fa fa-home" aria-hidden="true"></i> Mon compte</a></li>
+			<li><a class="link-header" href="index.php?page=logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></li>
+			<li><a class="link-header" href="#"><i class="fa fa-home" aria-hidden="true"></i> Welcome <?=htmlentities($_SESSION['login'])?></a></li>
+			<li>
+				<form>
+					<input type="hidden" value="recherche" name="page">
+					<input class="search" autofocus type="search" placeholder="Entrez un mot-clé" name="search" onfocus="this.value = this.value;" value="<?=$search?>">
+					<input type="submit" style="display:none">
+				</form>
+			</li>
+		</ul>
+	</nav>
+</header>

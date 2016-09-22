@@ -30,8 +30,7 @@ class UserManager
 		return $this -> findById($id);
 	}
 
-
-	public function create($login, $password, $firstname, $lastname, $address, $zip, $city, $phone, $email, $birthdate, $gender)
+	public function create($login, $password)
 	{
 		$user = new User($this -> db);
 		$user -> setLogin($login);

@@ -7,7 +7,6 @@ class User
 	private $login;
 	private $pwd;
 
-
 	public function __construct($db)
 	{
 		$this->db = $db;
