@@ -1,9 +1,10 @@
 <?php
-
 	session_start();
-	$db = mysqli_connect("192.168.1.95:1337", "tchat", "tchat", "tchat");
+
+	$db = mysqli_connect("192.168.1.95", "tchat", "tchat", "tchat");
+	
 	$empty = "";
-	// Url autoload : http://fr2.php.net/manual/fr/function.autoload.php
+
 	function __autoload($className)
 	{
 		require('models/'.$className.'.class.php');
@@ -16,12 +17,9 @@
 	
 	if(isset($_GET['page']))
 	{
-		if(isset($_SESSION['id']))
+		if(isset($_SESSION['id']) && in_array($_GET['page'], $accessIn))
 		{
-			if (in_array($_GET['page'], $accessIn))
-			{
-				$page = $_GET['page'];
-			}
+			$page = $_GET['page'];
 		}
 		else if(in_array($_GET['page'], $access))
 		{
@@ -35,9 +33,12 @@
 	
 	if(isset($_GET['page'], $traitementList[$_GET['page']]))
 		require("controllers/traitement_".$traitementList[$_GET['page']].".php");
+
 	//Ajax
-	if (isset($_GET['ajax']))
-		require('controllers/recherche_res.php');
+	
+	// if (isset($_GET['ajax']))
+	// 	require('controllers/recherche_res.php');
 	else
 		require('controllers/skel.php');
+	
 ?>
