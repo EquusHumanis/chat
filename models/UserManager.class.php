@@ -5,47 +5,46 @@ class UserManager
 
 	public function __construct($db)
 	{
-		$this -> db = $db;
+		$this->db = $db;
 	}
-
 	public function findById($id)
 	{
 		$id = intval($id);
-		$query = "SELECT * FROM users WHERE id='".$id."'";
-		$res = mysqli_query($this -> db, $query);
-		$user = mysqli_fetch_object($res, "User", [$this -> db]);
-		return $user;
+		$query = "SELECT * FROM user WHERE id='".$id."'";
+		$res = $this->db->query($query, PDO::FETCH_CLASS, "User");
+		if ($res)
+		{
+			$user = $res->fetch();
+			return $user;
+		}
+		else
+			throw new Exception("Internal Server Error > ".$this->db->errorInfo()[2]);
 	}
-	public function findByLogin($login)
+	public function create($login, $password1, $password2)
 	{
-		$login = mysqli_real_escape_string($this->db, $login);
-		$query = "SELECT * FROM users WHERE login='".$login."'";
-		$res = mysqli_query($this -> db, $query);
-		$user = mysqli_fetch_object($res, "User", [$this -> db]);
-		return $user;
+		$user = new User();
+		$user->setLogin($login);
+		$user->initPassword($password1, $password2);
+		$login = $this->db->quote($user->getLogin());
+		$hash = $this->db->quote($user->getHash());
+		$query = "INSERT INTO user (login, password) VALUES('".$login."', '".$hash."')";
+		$res = $this->db->exec($query);
+		if ($res)
+			return $this->findById($this->db->lastInsertId());
+		else
+			throw new Exception("Internal Server Error > ".$this->db->errorInfo()[2]);
 	}
-
-	public function find($id)
+	public function findAll()
 	{
-		return $this -> findById($id);
-	}
-
-	public function create($login, $password)
-	{
-		$user = new User($this -> db);
-		$user -> setLogin($login);
-		$user -> setPassword($password);
-
-		$login 		= mysqli_real_escape_string($this -> db, $user -> getLogin());
-		$hash 		= $user -> getPassword();
-
-
-		$query = "INSERT INTO users (login, password) VALUES('".$login."', '".$hash."')";
-		$res = mysqli_query($this->db, $query);
-		if (!$res)
-				throw new Exception("Erreur interne > ".mysqli_error($this->db));
-		$id = mysqli_insert_id($this->db);
-		return $this->findById($id);
+		$query = "SELECT * FROM user ORDER BY date";
+		$res = $this->db->query($query, PDO::FETCH_CLASS, "User");
+		if ($res)
+		{
+			$users = $res->fetchAll();
+			return $users;
+		}
+		else
+			throw new Exception("Internal Server Error > ".$this->db->errorInfo()[2]);
 	}
 }
 ?>
