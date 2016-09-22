@@ -6,7 +6,7 @@ if (isset($_GET['search']))
 //
 
 if (isset($_SESSION['id']))
-	require('views/header_admin.phtml');
+	require('views/header_in.phtml');
 else
 	require('views/header.phtml');
 ?>

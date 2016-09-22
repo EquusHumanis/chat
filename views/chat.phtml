@@ -1,5 +1,32 @@
 <div class="container clearfix">
   <div class="contacts floatLeft">
+<?php require("controllers/message.php") ?>
+
+<form method="POST">
+  <input type="hidden" name="action" value="create" >
+  <input type="hidden" name="user" value="SESSION_ID">
+  <textarea name="message" placeholder="..."></textarea>
+  <input type="submit" value="✚" >
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+  <div class="contacts">
     <div class="buttons">
       <button class="new-message fa-envelope-o"></button><button class="search fa-search"></button>
     </div>
