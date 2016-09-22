@@ -27,7 +27,7 @@ if (isset($_POST['action']))
 		try
 		{
 			$user = $manager->create($_POST['login'], $_POST['password1'], $_POST['password2']);
-			header('Location: index.php');
+			header('Location: index.php?page=login');
 			exit;
 		}
 		catch (Exception $e)
