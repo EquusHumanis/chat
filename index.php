@@ -11,15 +11,6 @@
 	
 	$error = '';
 	$page = "home";
-	$access = ["register", "login"];
-	$accessIn = ["logout"];
-	
-	if(isset($_GET['page']))
-	{
-		if(isset($_SESSION['id']) && in_array($_GET['page'], $accessIn))
-		{
-			$page = $_GET['page'];
-
 	$access = ["home","register", "login"];
 	$accessIn = [];
 	
@@ -39,11 +30,7 @@
 	}
 	
 	$traitementList = [
-
-		"register" => "users", "login" => "users", "logout" => "users"	
-
-		"register" => "users", "login" => "users", "logout" => "users",
-
+		"register" => "users", "login" => "users", "logout" => "users"
 	];
 	
 	if(isset($_GET['page'], $traitementList[$_GET['page']]))
