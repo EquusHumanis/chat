@@ -1,9 +1,47 @@
 /*GLOBAL*/
 body {
   margin: 0;
+  font-family: 'Pavanam', sans-serif;
+
 }
 
 /*HEADER*/
+.header{
+  background: #3FC0FF;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header h1{
+  font-size: 32px;
+  font-family: 'Yatra One', cursive;
+  text-transform: uppercase;
+  padding: 40px;
+}
+
+.header h1 span{
+  font-size: 12px;
+}
+
+.header .nav ul{
+  padding-bottom: 20px;
+}
+
+.header .nav ul li{
+  display: inline-block;
+}
+
+.header .nav ul li a{
+  text-decoration: none;
+  color: #fff;
+  margin: 20px; 
+  padding: 5px;
+}
+
+.header .nav ul li a:hover{
+  border-bottom: 2px solid #fff;
+} 
 
 /*CONTENT*/
 
