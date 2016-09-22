@@ -14,7 +14,7 @@ class User
 	{
 		return $this->login;
 	}
-	public function getPassword()
+	public function getHash()
 	{
 		return $this->password;
 	}
@@ -26,9 +26,15 @@ class User
 	{
 		$this->login = $login;
 	}
-	public function setPassword($password)
+	public function initPassword($password1, $password2)
 	{
-		$this->password = $password;
+		if ($password1 != $password2)
+			throw new Exception("Passwords don't match");
+		$this->password = password_hash($password1, PASSWORD_BCRYPT);
+	}
+	public function verifPassword($password)
+	{
+		return password_verify($password, $this->password);
 	}
 }
 ?>
