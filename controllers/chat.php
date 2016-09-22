@@ -1,3 +1,3 @@
 <?php
-	require 'views/chat.phtml';
+	require("views/chat.phtml");
 ?>
