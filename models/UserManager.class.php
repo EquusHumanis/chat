@@ -47,7 +47,6 @@ class UserManager
 				throw new Exception("Erreur interne > ".mysqli_error($this->db));
 		$id = mysqli_insert_id($this->db);
 		return $this->findById($id);
-
 	}
 }
 ?>
