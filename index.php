@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$db = mysqli_connect("192.168.1.95", "tchat", "tchat", "tchat");
+$db = new PDO('mysql:dbname=tchat;host=192.168.1.95', 'tchat', 'tchat');
 
 function __autoload($className)
 {
@@ -10,7 +10,7 @@ function __autoload($className)
 
 $error = '';
 $page = "home";
-$access = ["register", "login"];
+$access = ["home", "register", "login"];
 $accessIn = ["logout"];
 
 if(isset($_GET['page']))
@@ -28,7 +28,8 @@ if(isset($_GET['page']))
 }
 
 $traitementList = [
-	"register" => "users", "login" => "users", "logout" => "users"	
+	"register" => "users", "login" => "users", "logout" => "users",
+	"chat"=>"tchat"
 ];
 
 if(isset($_GET['page'], $traitementList[$_GET['page']]))
