@@ -1,62 +1,34 @@
 <?php
-
 class User
 {
-	//Propriétés
 	private $id;
 	private $login;
-	private $pwd;
+	private $password;
+	private $date;
 
-	public function __construct($db)
-	{
-		$this->db = $db;
-	}
-
-	//Méthodes
-	//Get
 	public function getId()
 	{
-		return $this -> id;
+		return $this->id;
 	}
-
 	public function getLogin()
 	{
-		return $this -> login;
+		return $this->login;
 	}
-
 	public function getPassword()
 	{
-		return $this -> pwd;
+		return $this->password;
 	}
-
-
-	//Set
+	public function getDate()
+	{
+		return $this->date;
+	}
 	public function setLogin($login)
 	{
-		if (empty($login)) {
-			throw new Exception("Login vide");
-		} else if (strlen($login) < 4) {
-			throw new Exception("Login trop court");
-		} else if (strlen($login) > 63) {
-			throw new Exception("Login trop long");
-		} else {
-			$this -> login = $login;
-		}
+		$this->login = $login;
 	}
-
-	public function setPassword($pwd)
+	public function setPassword($password)
 	{
-		if (empty($pwd)) {
-			throw new Exception("Pas de mdp");
-		} else if (strlen($pwd) < 6) {
-			throw new Exception("Error Processing > 6 mdp", 1);	
-		} else if (strlen($pwd) > 255) {
-			throw new Exception("Error Processing < 255 mdp", 1);	
-		} else {
-			$hash = password_hash($pwd, PASSWORD_BCRYPT, ["cost"=>12]);
-			$this -> pwd = $hash;
-		}
+		$this->password = $password;
 	}
 }
-
 ?>
