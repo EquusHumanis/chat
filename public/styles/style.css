@@ -1,3 +1,8 @@
+/*GLOBAL*/
+body {
+  margin: 0;
+}
+
 /*HEADER*/
 
 /*CONTENT*/
@@ -9,10 +14,6 @@
 html, body, .container {
   height: 100%;
   overflow: hidden;
-}
-
-body {
-  margin: 0;
 }
 
 .container {
