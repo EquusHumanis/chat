@@ -1,3 +1,3 @@
 <?php
-require 'views/content.php';
+require 'views/content.phtml';
 ?>
