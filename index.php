@@ -20,6 +20,7 @@
 		if(isset($_SESSION['id']) && in_array($_GET['page'], $accessIn))
 		{
 			$page = $_GET['page'];
+
 		}
 		else if(in_array($_GET['page'], $access))
 		{
@@ -35,8 +36,10 @@
 		require("controllers/traitement_".$traitementList[$_GET['page']].".php");
 
 	//Ajax
+	/*
 	if (isset($_GET['ajax']))
 		require('controllers/recherche_res.php');
 	else
 		require('controllers/skel.php');
+	*/
 ?>

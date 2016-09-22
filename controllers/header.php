@@ -1,5 +1,4 @@
 <?php
-
 //Ajax
 $search = '';
 if (isset($_GET['search']))
