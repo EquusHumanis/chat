@@ -10,7 +10,7 @@ function __autoload($className)
 
 $error = '';
 $page = "home";
-$access = ["home", "register", "login"];
+$access = ["home", "register", "login", "chat"];
 $accessIn = ["logout"];
 
 if(isset($_GET['page']))
@@ -28,8 +28,7 @@ if(isset($_GET['page']))
 }
 
 $traitementList = [
-	"register" => "users", "login" => "users", "logout" => "users",
-	"chat"=>"tchat"
+	"register" => "users", "login" => "users", "logout" => "users"
 ];
 
 if(isset($_GET['page'], $traitementList[$_GET['page']]))
