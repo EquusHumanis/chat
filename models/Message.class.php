@@ -27,6 +27,11 @@ class Message
 	}
 	public function getAuthor()
 	{
+		if (!$this->author)
+		{
+			$userManager = new UserManager($this->db);
+			$this->author = $userManager->findById($this->id_author);
+		}
 		return $this->author;
 	}
 	public function setContent($content)

@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 if (isset($_POST['action']))
 {
 	$action = $_POST['action'];
@@ -13,6 +12,9 @@ if (isset($_POST['action']))
 			{
 				$_SESSION['id'] = $user->getId();
 				$_SESSION['user'] = $user->getLogin();
+
+				header('Location: index.php?page=home');
+				exit;
 			}
 			else
 				$_SESSION['error'] = 'Wrong password';
@@ -23,7 +25,6 @@ if (isset($_POST['action']))
 	else if ($action == 'register' && isset($_POST['login'], $_POST['password1'], $_POST['password2']))
 	{
 		$manager = new UserManager($db);
-		var_dump($manager);
 		try
 		{
 			$user = $manager->create($_POST['login'], $_POST['password1'], $_POST['password2']);
@@ -34,7 +35,6 @@ if (isset($_POST['action']))
 		{
 			$_SESSION['error'] = $e->getMessage();
 		}
-		var_dump($_POST, $_SESSION['error']);
 	}
 }
 else if (isset($_GET['page']) && $_GET['page'] == 'logout')

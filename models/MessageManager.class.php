@@ -27,7 +27,7 @@ class MessageManager
 		$message->setContent($content);
 		$id_author = intval($message->getAuthor()->getId());
 		$content = $this->db->quote($message->getContent());
-		$query = "INSERT INTO message (id_author, content) VALUES('".$id_author."', '".$content."')";
+		$query = "INSERT INTO message (id_author, content) VALUES('".$id_author."', ".$content.")";
 		$res = $this->db->exec($query);
 		if ($res)
 			return $this->findById($this->db->lastInsertId());
@@ -36,7 +36,7 @@ class MessageManager
 	}
 	public function findAll()
 	{
-		$query = "SELECT * FROM message ORDER BY date";
+		$query = "SELECT * FROM message ORDER BY date DESC";
 		$res = $this->db->query($query, PDO::FETCH_CLASS, "Message", [$this->db]);
 		if ($res)
 		{

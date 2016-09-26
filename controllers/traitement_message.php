@@ -8,16 +8,22 @@ if(isset($_POST["action"]))
 			$userManager = new UserManager($db);
 			$messageManager = new MessageManager($db);
 
-			$user = $userManager->findById($_POST["user"]);
-			var_dump($user);
-			//try if (!$user) throw new Exception("Vous n'êtes plus connecté");
+			try
+			{
+				$user = $userManager->findById($_POST["user"]);
+				if (!$user)
+					throw new Exception("Vous n'êtes plus connecté");
 
-			$message = $messageManager->create(/*$user, */$_POST["message"]);
-			var_dump($message);
-			if(!$message)
-				throw new Exception("Erreur interne");
-
-			exit;
+				$message = $messageManager->create($user, $_POST["message"]);
+				if(!$message)
+					throw new Exception("Erreur interne");
+				header('Location: index.php?page=home');
+				exit;
+			}
+			catch (Exception $exception)
+			{
+				$error = $exception->getMessage();
+			}
 		}
 	}
 }
