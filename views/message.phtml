@@ -1,5 +1,10 @@
-<div>
-	<p><?= htmlentities($messages[$i]->getDate()) ?></p>
-	<p><?= htmlentities($messages[$i]->getContent()) ?></p>
-	<p><?= htmlentities($messages[$i]->getAuthor()->getLogin()) ?></p>
-</div>
+<li class="me">
+	<div class="name">
+  		<span class=""><?= htmlentities($messages[$i]->getAuthor()->getLogin()) ?></span>
+  	</div>
+  	<div class="message">
+		<p><?= htmlentities($messages[$i]->getContent()) ?></p>
+		<span class="msg-time"><?= htmlentities($messages[$i]->getDate()) ?></span>
+	</div>
+</li>
+	
