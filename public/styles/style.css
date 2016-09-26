@@ -188,7 +188,7 @@ b {
 .window-wrapper {
   background: #fff;
   width: 780px;
-  margin: 10% auto;
+  margin: 5% auto;
   border-radius: 6px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   overflow: hidden;
